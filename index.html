@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en">
 	<head>
 		<title>SouthCreed Business Solutions — Fast, secure websites</title>
 		<meta charset="utf-8" />
@@ -19,6 +19,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+		<a class="skip-link" href="#main">Skip to content</a>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -32,10 +33,14 @@
 								<li><a href="https://twitter.com" class="icon brands fa-twitter alt" aria-label="Twitter"><span class="label">Twitter</span></a></li>
 								<li><a href="https://www.linkedin.com" class="icon brands fa-linkedin alt" aria-label="LinkedIn"><span class="label">LinkedIn</span></a></li>
 							</ul>
+							<ul class="actions">
+								<li><a href="#cta" class="button primary">Get Started</a></li>
+								<li><a href="mailto:southcreed@gmail.com" class="button">Email Us</a></li>
+							</ul>
 						</header>
 
 				<!-- Nav -->
-					<nav id="nav">
+					<nav id="nav" aria-label="Primary navigation">
 						<ul>
 							<li><a href="#intro" class="active">Introduction</a></li>
 							<li><a href="#first">First Section</a></li>
@@ -59,7 +64,7 @@
 											<li><a href="generic.html" class="button">Learn More</a></li>
 										</ul>
 									</div>
-									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+									<span class="image"><img src="images/pic01.jpg" alt="SouthCreed team collaborating" /></span>
 								</div>
 							</section>
 
@@ -149,30 +154,30 @@
 					<footer id="footer">
 						<section>
 							<h2>SouthCreed Business Solutions</h2>
-							<p>Don't let your business fall behind in today's competitive market. We provide comprehensive solutions to help you grow and succeed.</p>
+							<p>Don't let your business fall behind in today's competitive market. We provide fast, secure websites and clear next steps for customers.</p>
 							<ul class="actions">
 								<li><a href="generic.html" class="button">Learn More</a></li>
+								<li><a href="#cta" class="button primary">Get Started</a></li>
 							</ul>
 						</section>
 						<section>
-							<h2>Etiam feugiat</h2>
+							<h2>Contact</h2>
 							<dl class="alt">
 								<dt>Address</dt>
 								<dd>Downtown &bull; Jacksonville, FL &bull; USA</dd>
 								<dt>Phone</dt>
-								<dd>(904) 515-5480 </dd>
+								<dd><a href="tel:+19045155480">(904) 515-5480</a></dd>
 								<dt>Email</dt>
-								<dd><a href="#">southcreed@gmail.com</a></dd>
+								<dd><a href="mailto:southcreed@gmail.com">southcreed@gmail.com</a></dd>
 							</dl>
 							<ul class="icons">
-								<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+								<li><a href="#" class="icon brands fa-twitter alt" aria-label="Twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands fa-facebook-f alt" aria-label="Facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram alt" aria-label="Instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-github alt" aria-label="GitHub"><span class="label">GitHub</span></a></li>
 							</ul>
 						</section>
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">&copy; SouthCreed Business Solutions. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 					</footer>
 
 			</div>
@@ -188,6 +193,80 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+		<!-- Sticky contact CTA + slide-in form -->
+		<button id="sticky-contact" aria-controls="contact-panel" aria-expanded="false">Contact</button>
+		<div id="contact-panel" class="contact-panel" aria-hidden="true">
+			<button id="contact-close" class="contact-close" aria-label="Close contact form">×</button>
+			<h3>Quick contact</h3>
+			<form id="sticky-contact-form" name="sticky-contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+				<input type="hidden" name="form-name" value="sticky-contact" />
+				<div style="display:none">
+					<label>Don’t fill this out: <input name="bot-field" /></label>
+				</div>
+				<label for="sc-name">Name</label>
+				<input id="sc-name" name="name" type="text" required />
+				<label for="sc-email">Email</label>
+				<input id="sc-email" name="email" type="email" required />
+				<label for="sc-message">Message</label>
+				<textarea id="sc-message" name="message" rows="4" required></textarea>
+				<div class="actions">
+					<button type="submit" class="button primary">Send</button>
+					<button type="button" id="contact-cancel" class="button">Cancel</button>
+				</div>
+			</form>
+		</div>
+
+		<script>
+		// Minimal JS: toggle panel and submit via mailto for quick delivery (no server required)
+		(function(){
+		  var btn = document.getElementById('sticky-contact');
+		  var panel = document.getElementById('contact-panel');
+		  var close = document.getElementById('contact-close');
+		  var cancel = document.getElementById('contact-cancel');
+		  var form = document.getElementById('sticky-contact-form');
+		  function openPanel(){
+		    panel.classList.add('open');
+		    panel.setAttribute('aria-hidden','false');
+		    btn.setAttribute('aria-expanded','true');
+		    document.getElementById('sc-name').focus();
+		  }
+		  function closePanel(){
+		    panel.classList.remove('open');
+		    panel.setAttribute('aria-hidden','true');
+		    btn.setAttribute('aria-expanded','false');
+		    btn.focus();
+		  }
+		  btn.addEventListener('click', openPanel);
+		  close.addEventListener('click', closePanel);
+		  cancel.addEventListener('click', closePanel);
+		form.addEventListener('submit', function(e){
+			e.preventDefault();
+			var data = new FormData(form);
+			fetch('/', {
+				method: 'POST',
+				body: data
+			}).then(function(response){
+				if (response.ok) {
+					// simple inline confirmation
+					var prev = panel.querySelector('.thanks');
+					if(prev) prev.remove();
+					var msg = document.createElement('div');
+					msg.className = 'thanks';
+					msg.textContent = 'Thanks — we received your message.';
+					msg.style.marginTop = '0.6rem';
+					panel.appendChild(msg);
+					form.reset();
+					setTimeout(closePanel, 1200);
+				} else {
+					alert('There was a problem submitting the form. Please email southcreed@gmail.com');
+				}
+			}).catch(function(){
+				alert('Submission failed — please email southcreed@gmail.com');
+			});
+		});
+		})();
+		</script>
 
 	</body>
 </html>
